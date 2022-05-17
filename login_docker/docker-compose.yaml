@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mysql_credenciales:
+    image: mysql
+    container_name: mysql_credenciales
+    platform: linux/x86_64
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: America/Santiago
+    volumes:
+      - credenciales:/var/lib/mysql
+    networks:
+     net_interna:
+       aliases:
+         - api_net_cre
+
+volumes:
+  credenciales:
+
+networks:
+ net_interna:
+   name: api_net
+   driver: bridge
+   ipam: 
+     driver: default
