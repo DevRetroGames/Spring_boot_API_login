@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,18 +39,15 @@ public class Roles {
 	@Column( name = "ROLES_ID" , updatable = false , nullable = false )
 	private UUID rolesId ;
 	
-	@Column( name = "NOMBRE" )
-	private String nombre ;
+	@Column( name = "NAME" )
+	private String name ;
 	
-	@Column( name = "NIVEL" )
-	private Integer nivel ;
+	@Column( name = "STATUS" )
+	private boolean status ;
 	
-	@Column( name = "ESTADO" )
-	private boolean estado ;
-	
-	// Bidirectional with the table information
-	@OneToOne( mappedBy = "rol" , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
-	private Informacion informacion ;
+	// Bidirectional with the table identifications
+	@ManyToOne( optional = false , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
+	private Identifications identificacion ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )

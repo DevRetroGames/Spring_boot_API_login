@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,39 +29,34 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table( name = "INFORMACION" )
+@Table( name = "INFORMACIONES" )
 public class Informacion {
 	
 	@Id
 	@GeneratedValue( generator = "hibernate-uuid" )
 	@GenericGenerator( name = "uuid" , strategy = "uuid4" )
 	@Type( type = "org.hibernate.type.UUIDCharType" )
-	@Column( name = "INFO_ID" , updatable = false , nullable = false )
-	private UUID infoId ;
+	@Column( name = "INFORMACIONES_ID" , updatable = false , nullable = false )
+	private UUID informacionesId ;
 	
-	@Column( name = "NOMBRES" )
-	private String nombres ;
+	@Column( name = "NAMES" )
+	private String names ;
 	
-	@Column( name = "APELLIDOS" )
-	private String apellidos ;
+	@Column( name = "LAST_NAMES" )
+	private String lastNames ;
 	
-	@Column( name = "EDAD" )
-	private int edad ;
+	@Column( name = "YEARS" )
+	private int years ;
 	
-	@Column( name = "FONO" )
-	private String fono ;
+	@Column( name = "CELL_PHONO_NUMBER" )
+	private String cellPhonoNumbers ;
 	
 	@Column( name = "EMAIL" )
 	private String email ;
-	
-	// foreign key of the table roles
-	@ManyToOne( cascade = CascadeType.ALL )
-	@JoinColumn( name = "ROLES" , referencedColumnName = "ROLES_ID" )
-	private Roles rol ;
-	
+		
 	// Bidirectional with the table identification
 	@OneToOne( mappedBy = "informacion" , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
-	private Identificacion identificacion ;
+	private Identifications identificacion ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )

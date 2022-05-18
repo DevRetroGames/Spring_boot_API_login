@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,20 +30,25 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table( name = "IDENTIFICACION" )
-public class Identificacion {
+@Table( name = "IDENTIFICACIONES" )
+public class Identifications {
 	
 	@Id
 	@GeneratedValue( generator = "hibernate-uuid" )
 	@GenericGenerator( name = "uuid" , strategy = "uuid4" )
 	@Type( type = "org.hibernate.type.UUIDCharType" )
-	@Column( name = "IDEN_ID" , updatable = false , nullable = false )
+	@Column( name = "IDENTIFICACIONES_ID" , updatable = false , nullable = false )
 	private UUID idenId ;
 	
-	// foreign key of the table information
+	// foreign key of the table informations
 	@OneToOne( cascade = CascadeType.ALL )
-	@JoinColumn( name = "INFO" , referencedColumnName = "INFO_ID" )
+	@JoinColumn( name = "INFORMACION" , referencedColumnName = "INFORMACIONES_ID" )
 	private Informacion informacion ;
+	
+	// foreign key of the table roles
+	@ManyToOne( cascade = CascadeType.ALL )
+	@JoinColumn( name = "ROL" , referencedColumnName = "ROLES_ID" )
+	private Roles roles ;
 	
 	@Column( name = "USUARIO" )
 	private String usuario ;

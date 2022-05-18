@@ -4,10 +4,10 @@ CREATE TABLE IF NOT EXISTS credenciales.IDENTIFICACIONES (
     IDENTIFICACIONES_ID VARCHAR(36) DEFAULT ( uuid() ) PRIMARY KEY ,
     
     -- fk de la tabla informacion
-    INFORMACION VARCHAR(36) NOT NULL ,
+    INFORMACION VARCHAR(36) ,
 
-    -- fk de la tabla roles
-    ROL VARCHAR(36) NOT NULL ,
+    --fk de la tabla roles
+    ROL VARCHAR(36) ,
 
     -- 
     USUARIO VARCHAR( 255 ) NOT NULL ,
@@ -17,11 +17,10 @@ CREATE TABLE IF NOT EXISTS credenciales.IDENTIFICACIONES (
     CreationDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 	ModificationDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
     
-    -- fk hacia la tabla informaciones
+    -- fk hacia la tabla roles
     FOREIGN KEY ( INFORMACION ) REFERENCES INFORMACIONES( INFORMACIONES_ID )
     ON DELETE SET NULL
     ON UPDATE CASCADE
-    
 
     -- fk hacia la tabla roles
     FOREIGN KEY ( ROL ) REFERENCES ROLES( ROLES_ID )
@@ -29,4 +28,3 @@ CREATE TABLE IF NOT EXISTS credenciales.IDENTIFICACIONES (
     ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ;
-

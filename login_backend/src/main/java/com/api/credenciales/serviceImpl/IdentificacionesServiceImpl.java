@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.api.credenciales.dto.IdentificacionDTO;
 import com.api.credenciales.exceptions.NotFoundException;
-import com.api.credenciales.model.Identificacion;
+import com.api.credenciales.model.Identifications;
 import com.api.credenciales.model.Informacion;
 import com.api.credenciales.repository.IIdentificacionRepository;
 import com.api.credenciales.repository.IInformacionRepository;
@@ -45,7 +45,7 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 	@Override
 	public IdentificacionDTO getIdentificationById( UUID indentificacionId ) {
 
-		Identificacion identificacion = this.iIdentificacionRepository
+		Identifications identificacion = this.iIdentificacionRepository
 				.findById( indentificacionId )
 				.orElseThrow( () -> new NotFoundException( 
 						"Identificacion" , "id" , indentificacionId ) 
@@ -78,7 +78,7 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 						"Informacion" , "id" , informacionId ) 
 					) ;
 		
-		Identificacion iden = mapperUtil
+		Identifications iden = mapperUtil
 				.identificacionDTOToIdentificacionEntity( identificacionDTO ) ;
 
 		iden.setInformacion( info ) ;
@@ -95,7 +95,7 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 			IdentificacionDTO identificacionDTO , 
 			UUID informacionId ) {
 		
-		Identificacion iden = this.iIdentificacionRepository
+		Identifications iden = this.iIdentificacionRepository
 				.findById( indentificacionId )
 				.orElseThrow( () -> new NotFoundException( 
 						"Identificacion" , "id" , indentificacionId ) 
@@ -119,7 +119,7 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 	@Override
 	public void deleteIdentification( UUID indentificacionId ) {
 		
-		Identificacion identificacion = this.iIdentificacionRepository
+		Identifications identificacion = this.iIdentificacionRepository
 				.findById( indentificacionId )
 				.orElseThrow( () -> new NotFoundException( 
 						"Identificacion" , "id" , indentificacionId ) 
