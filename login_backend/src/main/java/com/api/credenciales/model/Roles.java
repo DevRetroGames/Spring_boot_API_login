@@ -47,7 +47,7 @@ public class Roles {
 	
 	// Bidirectional with the table identifications
 	@ManyToOne( optional = false , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
-	private Identifications identificacion ;
+	private Identificacion identificacion ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )

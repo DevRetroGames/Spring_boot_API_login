@@ -31,14 +31,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table( name = "IDENTIFICACIONES" )
-public class Identifications {
+public class Identificacion {
 	
 	@Id
 	@GeneratedValue( generator = "hibernate-uuid" )
 	@GenericGenerator( name = "uuid" , strategy = "uuid4" )
 	@Type( type = "org.hibernate.type.UUIDCharType" )
 	@Column( name = "IDENTIFICACIONES_ID" , updatable = false , nullable = false )
-	private UUID idenId ;
+	private UUID identificacionesId ;
 	
 	// foreign key of the table informations
 	@OneToOne( cascade = CascadeType.ALL )

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.api.credenciales.dto.IdentificacionDTO;
 import com.api.credenciales.dto.InformacionDTO;
 import com.api.credenciales.dto.RolesDTO;
-import com.api.credenciales.model.Identifications;
+import com.api.credenciales.model.Identificacion;
 import com.api.credenciales.model.Informacion;
 import com.api.credenciales.model.Roles;
 
@@ -39,12 +39,12 @@ public class MapperUtil {
 	
 	// Identification
 	
-	public IdentificacionDTO identificacionEntityToIdentificacionDTO( Identifications identificacion ) {
+	public IdentificacionDTO identificacionEntityToIdentificacionDTO( Identificacion identificacion ) {
 		return modelMapper.map( identificacion , IdentificacionDTO.class ) ;
 	}
 	
-	public Identifications identificacionDTOToIdentificacionEntity( IdentificacionDTO identificacionDTO ) {
-		return modelMapper.map( identificacionDTO , Identifications.class ) ;
+	public Identificacion identificacionDTOToIdentificacionEntity( IdentificacionDTO identificacionDTO ) {
+		return modelMapper.map( identificacionDTO , Identificacion.class ) ;
 	}
 	
 }

@@ -56,7 +56,7 @@ public class Informacion {
 		
 	// Bidirectional with the table identification
 	@OneToOne( mappedBy = "informacion" , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
-	private Identifications identificacion ;
+	private Identificacion identificacion ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )
