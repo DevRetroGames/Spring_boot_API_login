@@ -45,10 +45,6 @@ public class Roles {
 	@Column( name = "STATUS" )
 	private boolean status ;
 	
-	// Bidirectional with the table identifications
-	@ManyToOne( optional = false , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
-	private Identificacion identificacion ;
-	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )
 	private Date creationDate ;
@@ -56,5 +52,9 @@ public class Roles {
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "ModificationDate" , insertable = false, updatable = false )
 	private Date modificationDate ;
+	
+	// Bidirectional with the table identifications
+	@ManyToOne( optional = false , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
+	private Identificacion identificacion ;
 	
 }

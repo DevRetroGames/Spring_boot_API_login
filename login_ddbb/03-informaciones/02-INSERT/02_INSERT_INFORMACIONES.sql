@@ -1,6 +1,6 @@
 -- datos personales
 -- fk hacia la tabla roles
-INSERT INTO INFORMACION( 
+INSERT INTO INFORMACIONES( 
   NAMES , 
   LAST_NAMES , 
   YEARS , 

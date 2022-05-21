@@ -12,10 +12,8 @@ public class RolesDTO {
 	private UUID rolesId ;
 	
 	@NotBlank( message = "Nombre obligatorio" )
-	private String nombre ;
+	private String name ;
 	
-	private Integer nivel ;
-	
-	private boolean estado ;
+	private boolean status ;
 	
 }

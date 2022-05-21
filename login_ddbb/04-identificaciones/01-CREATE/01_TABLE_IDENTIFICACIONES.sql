@@ -6,10 +6,10 @@ CREATE TABLE IF NOT EXISTS credenciales.IDENTIFICACIONES (
     -- fk de la tabla informacion
     INFORMACION VARCHAR(36) ,
 
-    --fk de la tabla roles
+    -- fk de la tabla roles
     ROL VARCHAR(36) ,
 
-    -- 
+    -- credenciales de acceso
     USUARIO VARCHAR( 255 ) NOT NULL ,
     PASS_WORD VARCHAR( 255 ) NOT NULL ,
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS credenciales.IDENTIFICACIONES (
     -- fk hacia la tabla roles
     FOREIGN KEY ( INFORMACION ) REFERENCES INFORMACIONES( INFORMACIONES_ID )
     ON DELETE RESTRICT
-    ON UPDATE CASCADE
+    ON UPDATE CASCADE ,
 
     -- fk hacia la tabla roles
     FOREIGN KEY ( ROL ) REFERENCES ROLES( ROLES_ID )
