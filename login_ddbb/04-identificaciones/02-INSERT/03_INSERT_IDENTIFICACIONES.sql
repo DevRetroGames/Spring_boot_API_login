@@ -8,5 +8,6 @@ VALUES(
   ( SELECT INFORMACIONES_ID FROM INFORMACIONES WHERE NAMES = "nombres" ) ,
   ( SELECT ROLES_ID FROM ROLES WHERE NAME = "dev_admin" ) , 
   "dev" , 
-  "dev" 
+  "dev" ,
+  1
 ) ;

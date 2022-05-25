@@ -25,7 +25,7 @@ import com.api.credenciales.service.IRolesService;
 
 @RestController
 @CrossOrigin( origins = "http://localhost:8081" )
-@RequestMapping( "/roles" )
+@RequestMapping( "/api/roles" )
 public class RolesController {
 	
 	@Autowired
@@ -40,8 +40,8 @@ public class RolesController {
 	
 	@GetMapping( "/find/role" )
 	@ResponseStatus( HttpStatus.OK )
-	public RolesDTO getSingleRole( @RequestParam UUID id ) {
-		return this.service.getRoleById( id ) ;
+	public RolesDTO getSingleRole( @RequestParam UUID roleID ) {
+		return this.service.getRole( roleID ) ;
 	}
 	
 	@PostMapping( "/" )
@@ -52,14 +52,14 @@ public class RolesController {
 	
 	@PutMapping( "/")
 	@ResponseStatus( HttpStatus.OK )
-	public RolesDTO updateRole( @RequestParam UUID id , @Valid @RequestBody RolesDTO rolesDTO ) {		
-		return this.service.updateRole( id , rolesDTO ) ;		
+	public RolesDTO updateRole( @RequestParam UUID roleID , @Valid @RequestBody RolesDTO rolesDTO ) {		
+		return this.service.updateRole( roleID , rolesDTO ) ;		
 	}
 	
 	@DeleteMapping( "/" )
 	@ResponseStatus( HttpStatus.OK )
-	public ApiResponse deleteRole( @RequestParam UUID id ) {		
-		this.service.deleteRole(id) ;
+	public ApiResponse deleteRole( @RequestParam UUID roleID ) {		
+		this.service.deleteRole( roleID ) ;
 		return new ApiResponse( "Role Deleted Successfully." , true ) ;
 	}
 	

@@ -42,13 +42,18 @@ public class RolesServiceImpl implements IRolesService {
 	}
 	
 	@Override
-	public RolesDTO getRoleById( UUID roleId ) {	
+	public RolesDTO getRole( UUID roleId ) {	
 		
 		Roles rol = this.iRolesRepository.findById( roleId )
 				.orElseThrow( () -> new NotFoundException( "Rol" , "id" , roleId ) ) ;
 		
 		return mapperUtil.roleEntityToRoleDTO( rol ) ;		
 	}
+	/*
+	@Override
+	public List<roleIdentificacionDTO> getRoleIdentificaciones( UUID roleID ) {
+		return null ;		
+	}*/
 	
 	@Override
 	public RolesDTO createRole( RolesDTO rolesDTO ) {						
@@ -62,9 +67,8 @@ public class RolesServiceImpl implements IRolesService {
 		
 		Roles rol = findByIdHelper.getRoleById( roleId ) ;
 
-		rol.setNombre( rolesDTO.getNombre() ) ;
-		rol.setNivel( rolesDTO.getNivel() ) ;
-		rol.setEstado( rolesDTO.isEstado() ) ;
+		rol.setName( rolesDTO.getName() ) ;
+		rol.setStatus( rolesDTO.isStatus() ) ;
 		
 		return mapperUtil.roleEntityToRoleDTO( this.iRolesRepository.save( rol ) ) ;
 
