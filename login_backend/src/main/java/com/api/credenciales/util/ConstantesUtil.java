@@ -8,6 +8,4 @@ import lombok.Getter;
 @Getter
 public class ConstantesUtil {
 	
-	
-	
 }

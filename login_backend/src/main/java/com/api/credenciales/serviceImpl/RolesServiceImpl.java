@@ -42,13 +42,14 @@ public class RolesServiceImpl implements IRolesService {
 	}
 	
 	@Override
-	public RolesDTO getRole( UUID roleId ) {	
+	public RolesDTO getRole( UUID roleID ) {	
 		
-		Roles rol = this.iRolesRepository.findById( roleId )
-				.orElseThrow( () -> new NotFoundException( "Rol" , "id" , roleId ) ) ;
+		Roles rol = this.iRolesRepository.findById( roleID )
+				.orElseThrow( () -> new NotFoundException( "Rol" , "id" , roleID ) ) ;
 		
 		return mapperUtil.roleEntityToRoleDTO( rol ) ;		
 	}
+	
 	/*
 	@Override
 	public List<roleIdentificacionDTO> getRoleIdentificaciones( UUID roleID ) {
@@ -63,9 +64,9 @@ public class RolesServiceImpl implements IRolesService {
 	}
 	
 	@Override
-	public RolesDTO updateRole( UUID roleId , RolesDTO rolesDTO ) {
+	public RolesDTO updateRole( UUID roleID , RolesDTO rolesDTO ) {
 		
-		Roles rol = findByIdHelper.getRoleById( roleId ) ;
+		Roles rol = findByIdHelper.getRoleById( roleID ) ;
 
 		rol.setName( rolesDTO.getName() ) ;
 		rol.setStatus( rolesDTO.isStatus() ) ;
@@ -75,8 +76,8 @@ public class RolesServiceImpl implements IRolesService {
 	} // end updateRole
 
 	@Override
-	public void deleteRole( UUID roleId ) {
-		this.iRolesRepository.delete( findByIdHelper.getRoleById( roleId ) ) ;		
+	public void deleteRole( UUID roleID ) {
+		this.iRolesRepository.delete( findByIdHelper.getRoleById( roleID ) ) ;		
 	} // end deleteRole
 
 }

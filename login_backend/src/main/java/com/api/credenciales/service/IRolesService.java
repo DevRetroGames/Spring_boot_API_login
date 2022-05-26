@@ -12,8 +12,7 @@ public interface IRolesService {
 	
 	/**
 	 * 
-	 * Lista con todos los registros de la tabla roles, 
-	 * sin la relación con la tabla identificaciones.
+	 * Lista con todos los registros de la tabla roles
 	 * 
 	 * @return List<RolesDTO>
 	 */
@@ -25,10 +24,9 @@ public interface IRolesService {
 	 * Obtiene un registro de la tabla roles basado en un id.
 	 * 
 	 * @param roleId
-	 * 
 	 * @return RolesDTO
 	 */
-	public RolesDTO getRole( UUID roleId ) ;
+	public RolesDTO getRole( UUID roleID ) ;
 	
 	
 	/**
@@ -63,7 +61,7 @@ public interface IRolesService {
 	 * 
 	 * @return RolesDTO
 	 */
-	public RolesDTO updateRole( UUID roleId , RolesDTO rolesDTO ) ;
+	public RolesDTO updateRole( UUID roleID , RolesDTO rolesDTO ) ;
 	
 	
 	/**
@@ -72,6 +70,6 @@ public interface IRolesService {
 	 * 
 	 * @param roleId
 	 */
-	public void deleteRole( UUID roleId ) ;
+	public void deleteRole( UUID roleID ) ;
 	
 }

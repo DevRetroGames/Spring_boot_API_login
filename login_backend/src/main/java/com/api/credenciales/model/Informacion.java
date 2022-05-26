@@ -26,21 +26,39 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table( name = "ROLES" )
-public class Roles {
-
+@Table( name = "INFORMACIONES" )
+public class Informacion {
+	
 	@Id
 	@GeneratedValue( generator = "hibernate-uuid" )
 	@GenericGenerator( name = "uuid" , strategy = "uuid4" )
 	@Type( type = "org.hibernate.type.UUIDCharType" )
-	@Column( name = "ROLES_ID" , updatable = false , nullable = false )
-	private UUID rolesId ;
+	@Column( name = "INFORMACIONES_ID" , updatable = false , nullable = false )
+	private UUID informacionesId ;
 	
-	@Column( name = "NAME" )
-	private String name ;
+	@Column( name = "NAMES" )
+	private String names ;
 	
-	@Column( name = "STATUS" )
-	private boolean status ;
+	@Column( name = "LAST_NAMES" )
+	private String lastNames ;
+	
+	@Column( name = "YEARS" )
+	private int years ;
+	
+	@Column( name = "CELL_PHONO_NUMBER" )
+	private String cellPhonoNumber ;
+	
+	@Column( name = "EMAIL" )
+	private String email ;
+	
+	@Column( name = "DNI" )
+	private String dni ;
+	
+	@Column( name = "COUNTRY" )
+	private String country ;
+	
+	@Column( name = "CITY" )
+	private String city ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "CreationDate" , insertable = false, updatable = false )
@@ -49,5 +67,5 @@ public class Roles {
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "ModificationDate" , insertable = false, updatable = false )
 	private Date modificationDate ;
-	
+
 }

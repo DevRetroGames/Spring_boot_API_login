@@ -26,28 +26,39 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table( name = "ROLES" )
-public class Roles {
-
+@Table( name = "IDENTIFICACIONES" )
+public class Identificacion {
+	
 	@Id
 	@GeneratedValue( generator = "hibernate-uuid" )
 	@GenericGenerator( name = "uuid" , strategy = "uuid4" )
 	@Type( type = "org.hibernate.type.UUIDCharType" )
-	@Column( name = "ROLES_ID" , updatable = false , nullable = false )
-	private UUID rolesId ;
+	@Column( name = "IDENTIFICACIONES_ID" , updatable = false , nullable = false )
+	private UUID identificacionesId ;
 	
-	@Column( name = "NAME" )
-	private String name ;
+	// foreign key of the table information
+	/*@OneToOne( cascade = CascadeType.ALL )
+	@JoinColumn( name = "INFO" , referencedColumnName = "INFO_ID" )*/
+	private Informacion informacion ;
+	
+	// foreign key of the table roles
+	private Roles rol ;
+	
+	@Column( name = "USUARIO" )
+	private String usuario ;
+	
+	@Column( name = "PASS_WORD" )
+	private String passWord ;
 	
 	@Column( name = "STATUS" )
 	private boolean status ;
 	
-	@Temporal( TemporalType.TIMESTAMP )
+	@Temporal( TemporalType.TIMESTAMP )	
 	@Column( name = "CreationDate" , insertable = false, updatable = false )
 	private Date creationDate ;
 	
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "ModificationDate" , insertable = false, updatable = false )
 	private Date modificationDate ;
-	
+
 }
