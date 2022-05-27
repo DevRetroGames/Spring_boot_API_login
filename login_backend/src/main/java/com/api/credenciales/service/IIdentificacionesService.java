@@ -26,7 +26,7 @@ public interface IIdentificacionesService {
 	 * @param identificacionID
 	 * @return IdentificacionDTO
 	 */
-	public IdentificacionDTO getIdentificationById( UUID identificacionID ) ;
+	public IdentificacionDTO getIdentification( UUID identificacionID ) ;
 	
 	
 	/**

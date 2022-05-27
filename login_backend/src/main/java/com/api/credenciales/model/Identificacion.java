@@ -39,10 +39,10 @@ public class Identificacion {
 	// foreign key of the table information
 	/*@OneToOne( cascade = CascadeType.ALL )
 	@JoinColumn( name = "INFO" , referencedColumnName = "INFO_ID" )*/
-	private Informacion informacion ;
+	//private Informacion informacion ;
 	
 	// foreign key of the table roles
-	private Roles rol ;
+	//private Roles rol ;
 	
 	@Column( name = "USUARIO" )
 	private String usuario ;

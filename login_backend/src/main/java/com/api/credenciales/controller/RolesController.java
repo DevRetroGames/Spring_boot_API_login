@@ -38,7 +38,7 @@ public class RolesController {
 		return this.service.getAllRoles() ;
 	}
 	
-	@GetMapping( "/find/role" )
+	@GetMapping( "/role" )
 	@ResponseStatus( HttpStatus.OK )
 	public RolesDTO getSingleRole( @RequestParam UUID roleID ) {
 		return this.service.getRole( roleID ) ;

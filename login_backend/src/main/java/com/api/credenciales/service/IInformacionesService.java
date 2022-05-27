@@ -26,7 +26,7 @@ public interface IInformacionesService {
 	 * @param informacionID
 	 * @return InformacionDTO
 	 */
-	public InformacionDTO getInformationById( UUID informacionID ) ;
+	public InformacionDTO getInformation( UUID informacionID ) ;
 	
 	
 	/**

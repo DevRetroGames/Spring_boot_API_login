@@ -16,11 +16,11 @@ public class MapperUtil {
 	// roles
 	
 	public RolesDTO roleEntityToRoleDTO( Roles roles ) {
-		return modelMapper.map( roles , RolesDTO.class ) ;
+		return this.modelMapper.map( roles , RolesDTO.class ) ;
 	}
 	
 	public Roles roleDTOToRoleEntity( RolesDTO rolesDTO ) {
-		return modelMapper.map( rolesDTO , Roles.class ) ;
+		return this.modelMapper.map( rolesDTO , Roles.class ) ;
 	}
 	
 	// Information
