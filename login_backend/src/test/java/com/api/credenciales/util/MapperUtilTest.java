@@ -37,11 +37,11 @@ public class MapperUtilTest {
 		
 		this.mapperUtil = Mockito.mock( MapperUtil.class ) ;
 		
-		this.rol = new Roles() ;
+		this.rol = Mockito.mock( Roles.class ) ;
 		this.rol.setName( "test01" ) ;
 		this.rol.setStatus( true ) ;
 		
-		this.rolDTO = new RolesDTO() ;
+		this.rolDTO = Mockito.mock( RolesDTO.class ) ;
 		this.rolDTO.setName( "test01" ) ;
 		this.rolDTO.setStatus( true ) ;
 		
@@ -69,6 +69,23 @@ public class MapperUtilTest {
 		
 		// dto equals
 		assertEquals( this.rolDTO , rolDTOTest ) ;
+		
+	}
+
+	@Test
+	public void testRoleDTOToRoleEntity() {
+		
+		Mockito.when( this.mapperUtil.roleDTOToRoleEntity( this.rolDTO ) ).thenReturn( rol ) ;
+		Roles rolTest = this.mapperUtil.roleDTOToRoleEntity( rolDTO ) ;
+		
+		// name equals
+		assertEquals( this.rol.getName() , rolTest.getName() ) ;
+		
+		// status equals
+		assertEquals( this.rol.isStatus() , rolTest.isStatus() ) ;
+		
+		// dto equals
+		assertEquals( this.rol , rolTest ) ;
 		
 	}
 
