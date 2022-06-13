@@ -34,10 +34,9 @@ public interface IInformacionesService {
 	 * Crea un nuevo registro en la tabla informaciones.
 	 * 
 	 * @param informacionDTO
-	 * @param rolID
 	 * @return InformacionDTO
 	 */
-	public InformacionDTO createInformation( InformacionDTO informacionDTO , UUID rolID ) ;
+	public InformacionDTO createInformation( InformacionDTO informacionDTO ) ;
 	
 	
 	/**
@@ -46,10 +45,9 @@ public interface IInformacionesService {
 	 * 
 	 * @param informacionID
 	 * @param informacionDTO
-	 * @param rolID
 	 * @return InformacionDTO
 	 */
-	public InformacionDTO updateInformation( UUID informacionID , InformacionDTO informacionDTO , UUID rolID ) ;
+	public InformacionDTO updateInformation( UUID informacionID , InformacionDTO informacionDTO ) ;
 	
 	
 	/**

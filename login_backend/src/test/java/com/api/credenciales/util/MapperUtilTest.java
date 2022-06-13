@@ -5,35 +5,35 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
 import com.api.credenciales.dto.RolesDTO;
 import com.api.credenciales.model.Roles;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MapperUtilTest {
 	
 	@Mock
-	private ModelMapper modelMapper ;
+	private ModelMapper modelMapper;
 	
 	@InjectMocks
-	private MapperUtil mapperUtil ;
-	
+	private MapperUtil mapperUtil;
+
 	// -----------------------------------------------------------------
 	
 	private Roles rol ;
 	
 	private RolesDTO rolDTO ;
-	
+
 	// -----------------------------------------------------------------
 	
 	@BeforeEach
-	public void setUp() throws Exception {
+	protected void setUp() throws Exception {
 		
 		this.mapperUtil = Mockito.mock( MapperUtil.class ) ;
 		
@@ -46,13 +46,13 @@ public class MapperUtilTest {
 		this.rolDTO.setStatus( true ) ;
 		
 	}
-	
+
 	// -----------------------------------------------------------------
 	
 	@AfterEach
-	public void tearDown() throws Exception {
+	protected void tearDown() throws Exception {
 	}
-	
+
 	// -----------------------------------------------------------------
 	
 	@Test

@@ -20,59 +20,57 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.credenciales.dto.ApiResponse;
-import com.api.credenciales.dto.RolesDTO;
-import com.api.credenciales.service.IRolesService;
+import com.api.credenciales.dto.InformacionDTO;
+import com.api.credenciales.service.IInformacionesService;
 
 @RestController
 @CrossOrigin( origins = "http://localhost:8081" )
-@RequestMapping( "/api/roles" )
-public class RolesController {
+@RequestMapping( "/api/informacion" )
+public class InformacionController {
 	
 	@Autowired
-	@Qualifier("roles")
-	private IRolesService service ;
-	
+	@Qualifier("informaciones")
+	private IInformacionesService service ;
+
 	
 	
 	@GetMapping( "/" )
 	@ResponseStatus( HttpStatus.OK )
-	public List<RolesDTO> getAllRoles() {		
-		return this.service.getAllRoles() ;
+	public List<InformacionDTO> getAllInformations() {		
+		return this.service.getAllInformations() ;
 	}
 	
 	
 	
-	@GetMapping( "/role" )
+	@GetMapping( "/informacion" )
 	@ResponseStatus( HttpStatus.OK )
-	public RolesDTO getSingleRole( @RequestParam UUID roleID ) {
-		return this.service.getRole( roleID ) ;
+	public InformacionDTO getSingleInformation( @RequestParam UUID informacionID ) {
+		return this.service.getInformation( informacionID ) ;
 	}
 	
 	
 	
 	@PostMapping( "/" )
 	@ResponseStatus( HttpStatus.CREATED )
-	public RolesDTO createRole( @Valid @RequestBody RolesDTO rolesDTO ) {		
-		return service.createRole( rolesDTO ) ;
+	public InformacionDTO createInformation( @Valid @RequestBody InformacionDTO informacionDTO ) {		
+		return service.createInformation( informacionDTO ) ;
 	}
 	
 	
 	
 	@PutMapping( "/")
 	@ResponseStatus( HttpStatus.OK )
-	public RolesDTO updateRole( @RequestParam UUID roleID , @Valid @RequestBody RolesDTO rolesDTO ) {		
-		return this.service.updateRole( roleID , rolesDTO ) ;		
+	public InformacionDTO updateInformation( @RequestParam UUID informacionID , @Valid @RequestBody InformacionDTO informacionDTO ) {		
+		return this.service.updateInformation( informacionID , informacionDTO ) ;		
 	}
 	
 	
 	
 	@DeleteMapping( "/" )
 	@ResponseStatus( HttpStatus.OK )
-	public ApiResponse deleteRole( @RequestParam UUID roleID ) {		
-		this.service.deleteRole( roleID ) ;
-		return new ApiResponse( "Role Deleted Successfully." , true ) ;
+	public ApiResponse deleteInformation( @RequestParam UUID informacionID ) {		
+		this.service.deleteInformation( informacionID ) ;
+		return new ApiResponse( "Information Deleted Successfully." , true ) ;
 	}
-	
-	
 	
 }
