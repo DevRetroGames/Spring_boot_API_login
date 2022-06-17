@@ -3,10 +3,14 @@ package com.api.credenciales.model;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PreRemove;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,5 +53,13 @@ public class Roles {
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "ModificationDate" , insertable = false, updatable = false )
 	private Date modificationDate ;
+	
+	@OneToOne( mappedBy = "rol" , fetch = FetchType.LAZY , cascade = CascadeType.REFRESH )
+	private Identificacion identificacion ;
+	
+	@PreRemove
+	public void nullRolInIdentification() {
+		this.identificacion.setRol( null ) ;
+	}
 	
 }

@@ -3,10 +3,13 @@ package com.api.credenciales.model;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,12 +40,14 @@ public class Identificacion {
 	private UUID identificacionesId ;
 	
 	// foreign key of the table information
-	/*@OneToOne( cascade = CascadeType.ALL )
-	@JoinColumn( name = "INFO" , referencedColumnName = "INFO_ID" )*/
-	//private Informacion informacion ;
+	@OneToOne( cascade = CascadeType.ALL )
+	@JoinColumn( name = "INFORMACION" , referencedColumnName = "INFORMACIONES_ID" )
+	private Informacion informacion ;
 	
 	// foreign key of the table roles
-	//private Roles rol ;
+	@OneToOne( cascade = CascadeType.REFRESH )
+	@JoinColumn( name = "ROL" , referencedColumnName = "ROLES_ID" )
+	private Roles rol ;
 	
 	@Column( name = "USUARIO" )
 	private String usuario ;

@@ -3,10 +3,13 @@ package com.api.credenciales.model;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -67,5 +70,8 @@ public class Informacion {
 	@Temporal( TemporalType.TIMESTAMP )
 	@Column( name = "ModificationDate" , insertable = false, updatable = false )
 	private Date modificationDate ;
+	
+	@OneToOne( mappedBy = "informacion" , fetch = FetchType.LAZY , cascade = CascadeType.ALL )
+	private Identificacion identificacion ;
 
 }

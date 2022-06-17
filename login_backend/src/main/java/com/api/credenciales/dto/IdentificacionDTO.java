@@ -3,7 +3,6 @@ package com.api.credenciales.dto;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -13,10 +12,8 @@ public class IdentificacionDTO {
 	
 	private UUID identificacionesId ;
 	
-	@NotEmpty( message = "" )
 	private InformacionDTO informacion ;
 	
-	@NotEmpty( message = "" )
 	private RolesDTO rol ;
 	
 	@NotBlank( message = "Usuario requerido." )
@@ -25,7 +22,7 @@ public class IdentificacionDTO {
 	@NotBlank( message = "Contraseña requerida." )
 	private String passWord ;
 	
-	@NotNull( message = "" )
+	@NotNull( message = "Status requerido." )
 	private boolean status ;
 
 }
