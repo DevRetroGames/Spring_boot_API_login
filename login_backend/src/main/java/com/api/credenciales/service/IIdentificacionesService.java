@@ -34,28 +34,6 @@ public interface IIdentificacionesService {
 	
 	/**
 	 * 
-	 * Devuelve un registro sin los datos de la tabla informaciones.
-	 * 
-	 * @param identificacionID
-	 * @return IdentificacionDTO
-	 */
-	public IdentificacionDTO getIdentificacionRole( UUID identificacionID ) ;
-	
-	
-	
-	/**
-	 * 
-	 * Devuelve un registro sin los datos de la tabla roles.
-	 * 
-	 * @param identificacionID
-	 * @return IdentificacionDTO
-	 */
-	public IdentificacionDTO getIdentificacionInformacion( UUID identificacionID ) ;
-	
-	
-	
-	/**
-	 * 
 	 * Crea un nuevo registro en tabla identificaciones, 
 	 * con la relacion con las tablas roles e informaciones.
 	 * 
@@ -64,7 +42,8 @@ public interface IIdentificacionesService {
 	 * @param rolID
 	 * @return IdentificacionDTO
 	 */
-	public IdentificacionDTO createIdentification( IdentificacionDTO identificacionDTO , UUID informacionID , UUID rolID ) ;
+	public IdentificacionDTO createIdentification( 
+			IdentificacionDTO identificacionDTO , UUID informacionID , UUID rolID ) ;
 	
 	
 	
@@ -79,7 +58,8 @@ public interface IIdentificacionesService {
 	 * @return IdentificacionDTO
 	 */
 	public IdentificacionDTO updateIdentification( 
-			UUID identificacionID , IdentificacionDTO identificacionDTO , UUID informacionID , UUID rolID ) ;
+			UUID identificacionID , IdentificacionDTO identificacionDTO , 
+			UUID informacionID , UUID rolID ) ;
 	
 	
 	

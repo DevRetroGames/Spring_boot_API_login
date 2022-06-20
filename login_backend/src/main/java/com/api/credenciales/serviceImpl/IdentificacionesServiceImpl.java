@@ -36,9 +36,6 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 	private IRolesRepository iRolesRepository ;
 	
 	@Autowired
-	private InformacionesServiceImpl informacionesServiceImpl ;
-	
-	@Autowired
 	private MapperUtil mapperUtil ;
 
 	
@@ -65,44 +62,6 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 					) ;
 		
 		return mapperUtil.identificacionEntityToIdentificacionDTO( identificacion ) ;
-		
-	}
-	
-	
-	
-	@Override
-	public IdentificacionDTO getIdentificacionRole( UUID identificacionID ) {
-		
-		Identificacion identificacion = this.iIdentificacionRepository.findById( identificacionID )
-				.orElseThrow( () -> new NotFoundException( 
-						"Identificacion" , "id" , identificacionID ) 
-					) ;
-		
-		IdentificacionDTO identificacionDTO = this.mapperUtil.identificacionEntityToIdentificacionDTO( identificacion ) ;
-		
-		identificacionDTO.setInformacion( null ) ;
-		
-		
-		return identificacionDTO ;
-		
-	}
-	
-	
-	
-	@Override
-	public IdentificacionDTO getIdentificacionInformacion( UUID identificacionID ) {
-		
-		Identificacion identificacion = this.iIdentificacionRepository.findById( identificacionID )
-				.orElseThrow( () -> new NotFoundException( 
-						"Identificacion" , "id" , identificacionID ) 
-					) ;
-		
-		IdentificacionDTO identificacionDTO = this.mapperUtil.identificacionEntityToIdentificacionDTO( identificacion ) ;
-		
-		identificacionDTO.setRol( null ) ;
-		
-		
-		return identificacionDTO ;
 		
 	}
 
@@ -168,7 +127,7 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 				this.iIdentificacionRepository.save( identificacion ) ) ;
 		
 	}
-
+	
 	
 	
 	@Override
@@ -179,9 +138,6 @@ public class IdentificacionesServiceImpl implements IIdentificacionesService {
 				.orElseThrow( () -> new NotFoundException( 
 						"Identificacion" , "id" , indentificacionID ) 
 					) ;
-		/*
-		this.informacionesServiceImpl.deleteInformation( 
-				identificacion.getInformacion().getInformacionesId() ) ;*/
 		
 		this.iIdentificacionRepository.delete( identificacion ) ;
 		

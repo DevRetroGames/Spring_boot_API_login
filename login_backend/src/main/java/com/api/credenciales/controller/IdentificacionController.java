@@ -51,22 +51,6 @@ public class IdentificacionController {
 	
 	
 	
-	@GetMapping( "/associate/informacion" )
-	@ResponseStatus( HttpStatus.OK )
-	public IdentificacionDTO getIdentificationInformacion( @RequestParam UUID indentificacionID ) {
-		return this.service.getIdentificacionInformacion( indentificacionID ) ;
-	}
-	
-	
-	
-	@GetMapping( "/associate/rol" )
-	@ResponseStatus( HttpStatus.OK )
-	public IdentificacionDTO getIdentificationRole( @RequestParam UUID indentificacionID ) {
-		return this.service.getIdentificacionRole( indentificacionID ) ;
-	}
-	
-	
-	
 	@PostMapping( "/" )
 	@ResponseStatus( HttpStatus.CREATED )
 	public IdentificacionDTO createIdentification( 
@@ -85,7 +69,8 @@ public class IdentificacionController {
 			@Valid @RequestBody IdentificacionDTO identificacionDTO , 
 			@RequestParam UUID informacionID , 
 			@RequestParam UUID rolID ) {		
-		return this.service.updateIdentification( indentificacionID , identificacionDTO , informacionID , rolID ) ;		
+		return this.service.updateIdentification( 
+				indentificacionID , identificacionDTO , informacionID , rolID ) ;		
 	}
 	
 	

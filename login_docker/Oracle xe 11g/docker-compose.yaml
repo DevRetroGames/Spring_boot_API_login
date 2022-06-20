@@ -1,0 +1,16 @@
+version: '3'
+services:
+  oracle-db:
+    image: jeugenio/oracle-xe-11g
+    container_name: credenciales
+    platform: linux/x86_64
+    restart: unless-stopped
+    ports:
+      - '1521:1521'
+      - '5500:5500'
+    environment:
+      TZ: America/Santiago
+    volumes:
+      - 'oracleDB:/var/lib/oracle'
+volumes:
+  oracleDB: null
